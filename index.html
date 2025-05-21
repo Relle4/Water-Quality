@@ -55,12 +55,12 @@
 
   <!-- Page-buttons -->
   <div class="pagination">
-    <button id="prevPage">⬅ Föregående</button>
-    <span id="pageIndicator">Sida 1</span>
-    <button id="nextPage">Nästa ➡</button>
+    <button id="prevPage">⬅ Previous</button>
+    <span id="pageIndicator">Page 1</span>
+    <button id="nextPage">Next ➡</button>
   </div>
 
-  <p id="sampleCount">Antal prover: räknar...</p>
+  <p id="sampleCount">Number of samples: counting...</p>
   
   <!-- Table to display the data -->
   <table id="dataTable">
@@ -106,7 +106,7 @@
               unit: "minute",
               tooltipFormat: "yyyy-MM-dd HH:mm"
             },
-            title: { display: true, text: "Tid" }
+            title: { display: true, text: "Time" }
           },
           y: {
             title: { display: true, text: "Temperatur (°C)" }
@@ -143,7 +143,7 @@
               unit: "minute",
               tooltipFormat: "yyyy-MM-dd HH:mm"
             },
-            title: { display: true, text: "Tid" }
+            title: { display: true, text: "Time" }
           },
           y: {
             title: { display: true, text: "Dissolved Oxygen" }
@@ -180,7 +180,7 @@
               unit: "minute",
               tooltipFormat: "yyyy-MM-dd HH:mm"
             },
-            title: { display: true, text: "Tid" }
+            title: { display: true, text: "Time" }
           },
           y: {
             title: { display: true, text: "Turbidity" }
@@ -217,7 +217,7 @@
       }
       
       // Display number of samples
-      document.getElementById("sampleCount").textContent = `Antal prover: ${rows.length}`;
+      document.getElementById("sampleCount").textContent = `Number of samples: ${rows.length}`;
 
       // Sort by time
       rows.sort((a, b) => a.time - b.time);
@@ -260,7 +260,7 @@
 
       // Show the number of pages and the current page
       const totalPages = Math.ceil(allRows.length / pageSize);
-      document.getElementById("pageIndicator").textContent = `Sida ${page} av ${totalPages}`;
+      document.getElementById("pageIndicator").textContent = `Page ${page} av ${totalPages}`;
       document.getElementById("prevPage").disabled = (page === 1);
       document.getElementById("nextPage").disabled = (page === totalPages);
     }
