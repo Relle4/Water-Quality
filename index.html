@@ -68,8 +68,8 @@
       <tr>
         <th>Timestamp</th>
         <th>Temperature (°C)</th>
-        <th>Dissolved Oxygen</th>
-        <th>Turbidity</th>
+        <th>Dissolved Oxygen (g/l)</th>
+        <th>Turbidity (NTU)</th>
         <th>GPS Position</th>
       </tr>
     </thead>
@@ -222,7 +222,7 @@
       // Sort by time
       rows.sort((a, b) => a.time - b.time);
       allRows = rows;
-
+      
       // Uppdate grafs
       tempChart.data.labels = rows.map(r => r.time);
       tempChart.data.datasets[0].data = rows.map(r => r.temp);
@@ -233,7 +233,7 @@
       doChart.update();
 
       turbidityChart.data.labels = rows.map(r => r.time);
-      turbidityChart.data.datasets[0].data = rows.map(r => r.do);
+      turbidityChart.data.datasets[0].data = rows.map(r => r.turbidity.replace("NTU", " "));
       turbidityChart.update();
 
       renderTablePage(currentPage);
